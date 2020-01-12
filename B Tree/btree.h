@@ -38,7 +38,7 @@ enum Operator
 	LT, 	/* Less Than */
 	LTE,	/* Less Than or Equal to */
 	GTE,	/* Greater Than or Equal to */
-	GT		/* Greater Than */
+	GT      /* Greater Than */
 };
 
 
@@ -191,7 +191,7 @@ class BTreeIndex {
   /**
    * File object for the index file.
    */
-	File		*file;
+	File	*file;
 
   /**
    * Buffer Manager Instance.
@@ -211,22 +211,22 @@ class BTreeIndex {
   /**
    * Datatype of attribute over which index is built.
    */
-	Datatype	attributeType;
+	Datatype attributeType;
 
   /**
    * Offset of attribute, over which index is built, inside records.
    */
-	int 		attrByteOffset;
+	int 	attrByteOffset;
 
   /**
    * Number of keys in leaf node, depending upon the type of key.
    */
-	int			leafOccupancy;
+	int	leafOccupancy;
 
   /**
    * Number of keys in non-leaf node, depending upon the type of key.
    */
-	int			nodeOccupancy;
+	int	nodeOccupancy;
 
 
 	// MEMBERS SPECIFIC TO SCANNING
@@ -234,12 +234,12 @@ class BTreeIndex {
   /**
    * True if an index scan has been started.
    */
-	bool		scanExecuting;
+	bool    scanExecuting;
 
   /**
    * Index of next entry to be scanned in current leaf being scanned.
    */
-	int			nextEntry;
+	int	nextEntry;
 
   /**
    * Page number of current page being scanned.
@@ -249,12 +249,12 @@ class BTreeIndex {
   /**
    * Current Page being scanned.
    */
-	Page		*currentPageData;
+	Page	*currentPageData;
 
   /**
    * Low INTEGER value for scan.
    */
-	int			lowValInt;
+	int	lowValInt;
 
   /**
    * Low DOUBLE value for scan.
@@ -264,12 +264,12 @@ class BTreeIndex {
   /**
    * Low STRING value for scan.
    */
-	std::string	lowValString;
+	std::string lowValString;
 
   /**
    * High INTEGER value for scan.
    */
-	int			highValInt;
+	int	highValInt;
 
   /**
    * High DOUBLE value for scan.
@@ -284,12 +284,12 @@ class BTreeIndex {
   /**
    * Low Operator. Can only be GT(>) or GTE(>=).
    */
-	Operator	lowOp;
+	Operator  lowOp;
 
   /**
    * High Operator. Can only be LT(<) or LTE(<=).
    */
-	Operator	highOp;
+	Operator  highOp;
 
   /**
    * the pageId when the root page hasn't been split
