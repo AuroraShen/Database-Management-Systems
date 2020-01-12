@@ -1,6 +1,6 @@
 /*
 Author Info
-NetID:      rshen27
+NetID:     rshen27
 */
 SELECT s.S_NAME AS [SupplierName], COUNT(DISTINCT o.O_CUSTKEY) AS CustCount
 FROM LINEITEM AS l
