@@ -1,6 +1,5 @@
 /*
 Author Info
-Student ID: 9080545462
 NetID:      rshen27
 */
 SELECT n.N_NAME AS [CountryName], SUM(l.L_QUANTITY*(l.L_EXTENDEDPRICE -l.L_DISCOUNT)) AS [OrderVolume]
