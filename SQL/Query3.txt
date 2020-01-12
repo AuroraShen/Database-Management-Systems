@@ -1,0 +1,44 @@
+/*
+Author Info
+Student ID: 9080545462
+NetID:      rshen27
+*/
+WITH SellerInfo AS
+(	SELECT l.L_ORDERKEY, n.N_NAME, r.R_REGIONKEY AS SRK, l.L_QUANTITY, l.L_EXTENDEDPRICE, l.L_DISCOUNT
+	FROM LINEITEM AS l
+	LEFT OUTER JOIN SUPPLIER AS s ON l.L_SUPPKEY = s.S_SUPPKEY
+	LEFT OUTER JOIN NATION AS n ON s.S_NATIONKEY = n.N_NATIONKEY
+	LEFT OUTER JOIN REGION AS r ON n.N_REGIONKEY = r.R_REGIONKEY
+),
+CustInfo AS
+(	SELECT o.O_ORDERKEY, r.R_REGIONKEY AS CRK
+	FROM ORDERS AS o
+	JOIN CUSTOMER AS c ON o.O_CUSTKEY = c.C_CUSTKEY
+	JOIN NATION AS n ON c.C_NATIONKEY = n.N_NATIONKEY
+	JOIN REGION AS r ON n.N_REGIONKEY = r.R_REGIONKEY
+),
+Uni AS
+(	SELECT SellerInfo.N_NAME, SellerInfo.SRK, CustInfo.CRK, 
+				SellerInfo.L_QUANTITY*(SellerInfo.L_EXTENDEDPRICE - SellerInfo.L_DISCOUNT) AS size	
+	FROM SellerInfo
+	LEFT OUTER JOIN CustInfo ON SellerInfo.L_ORDERKEY = CustInfo.O_ORDERKEY
+),
+WithinRegion AS
+(	SELECT Uni.N_Name, SUM(Uni.size) AS VolumeWithinRegion
+	FROM Uni
+	WHERE Uni.SRK = Uni.CRK
+	GROUP BY Uni.N_NAME
+),
+OutsideRegion AS
+(	SELECT Uni.N_Name, SUM(Uni.size) AS VolumeOutsideRegion
+	FROM Uni
+	WHERE Uni.SRK != Uni.CRK
+	GROUP BY Uni.N_NAME
+)
+
+SELECT WithinRegion.N_Name AS [CountryName], WithinRegion.VolumeWithinRegion,
+			OutsideRegion.VolumeOutsideRegion
+FROM WithinRegion
+JOIN OutsideRegion
+WHERE WithinRegion.N_Name = OutsideRegion.N_Name
+ORDER BY VolumeWithinRegion DESC;
