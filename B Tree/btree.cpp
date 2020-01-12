@@ -78,7 +78,6 @@ BTreeIndex::BTreeIndex(const std::string &relationName,
             throw BadIndexInfoException(outIndexName);
         }
 
-        // UnPin as soon as you can
         bufMgr->unPinPage(file, headerPageNum, false);
     }
     catch (FileNotFoundException e) {
