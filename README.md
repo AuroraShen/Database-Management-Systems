@@ -4,9 +4,6 @@ CS564
 Term: Fall 2019
 Teacher: Goetz Graefe
 
-
-
-
 Main Topics:
 
 Logistics and DBMS Uses
