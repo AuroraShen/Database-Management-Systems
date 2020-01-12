@@ -1,5 +1,5 @@
 # Database-Management-Systems
-CS564
+CS564 \n
 Term: Fall 2019
 Teacher: Goetz Graefe
 
