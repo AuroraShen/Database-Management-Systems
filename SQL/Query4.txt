@@ -1,6 +1,5 @@
 /*
 Author Info
-Student ID: 9080545462
 NetID:      rshen27
 */
 SELECT s.S_NAME AS [SupplierName], COUNT(DISTINCT o.O_CUSTKEY) AS CustCount
