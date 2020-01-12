@@ -1,7 +1,6 @@
 /**
  * @file    wl.cpp
- * @author  rshen27@wisc.edu
- * @author  9080545461
+ * @author  rshen
  * @version 1.0
  *
  * @section DESCRIPTION
