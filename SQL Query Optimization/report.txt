@@ -1,0 +1,26 @@
+## basic information
+- name: [Ruoxi Shen]
+- netid: [rshen27]
+
+
+## query 2 
+- A Description of how you optimize the query
+
+[Created indexes for some of the conditions in the Where Clause, they are p_size and p_type in the PART table, r_name in the REGION table and ps_supplycost in PARTSUPP table]
+
+- The optimized query shows [97.48] % improvement over baseline. 
+
+## query 3
+- A Description of how you optimize the query
+
+[Created indexes of c_mktsegment, Not Indexed from ORDERS, Pushing down selection and projection for the ORDERS, CUSTOMER, LINEITEM tables, Forcing Cross joining reorder to ORDERS cross CUSTOMER cross LINEITEM]
+
+- The optimized query shows [11.38] % improvement over baseline. 
+ 
+
+## query 4 
+- A Description of how you optimize the query
+
+[Created indexes of o_orderdate, Pushing down selection and projection for ORDERS and LINEITEM tables, selected less column (only select the column useful)]
+
+- The optimized query shows [18.54] % improvement over baseline. 

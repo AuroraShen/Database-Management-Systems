@@ -1,0 +1,6 @@
+DROP INDEX sizee;
+DROP INDEX typee;
+DROP INDEX namee;
+DROP INDEX suppcost;
+DROP INDEX mg;
+DROP INDEX od;
