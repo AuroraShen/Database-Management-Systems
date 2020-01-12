@@ -5,7 +5,9 @@ Teacher: Goetz Graefe
 
 Main Topics:
 Logistics and DBMS Uses
+
 ER Diagrams and Database Design
+
 SQL
 DBMS Buffer Management
 Tree-based Storage Structures
